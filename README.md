@@ -1,6 +1,6 @@
 # 🎫 Simple Ticket Manager  
-A full-stack Ticket Management system built as part of the **3Cortex Full-Stack Developer Evaluation**.  
-This project demonstrates practical hands-on experience with **REST API development, React frontend, database integration, workflow logic, optional AI usage, deployment, and clean documentation.**
+  
+This project demonstrates practical hands-on experience with **REST API development, React frontend, database integration, workflow logic, optional AI usage and clean documentation.**
 
 ---
 
@@ -17,7 +17,7 @@ This application allows users to:
 - Enjoy a polished **Corporate Blue UI** for professional presentation  
 - Access a fully deployed cloud version of the app  
 
-This project demonstrates the ability to independently design, build, integrate, deploy, and document a complete product.
+This project demonstrates the ability to independently design, build, integrate and document a complete product.
 
 ---
 
@@ -70,12 +70,6 @@ The frontend styling includes:
 - Axios  
 - React Router  
 - Custom CSS Corporate Blue theme  
-
-### **Deployment**
-- Backend: **Render**  
-- Frontend: **Vercel**  
-
----
 
 ## 📁 Project Structure
 
