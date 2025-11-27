@@ -107,3 +107,52 @@ ticket-manager-3cortex/
 │
 └── README.md
 
+## 🛠️ Local Setup
+
+### 🔹 Backend
+
+```bash
+cd backend
+python -m venv venv
+# PowerShell:
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python app.py
+
+🔹 Frontend
+cd frontend
+npm install
+npm start
+
+Runs at:
+
+http://localhost:3000
+
+📚 API Endpoints
+🔹 GET /api/health
+
+Health check.
+
+🔹 POST /api/tickets
+
+Create ticket.
+
+🔹 GET /api/tickets
+
+List all tickets.
+
+🔹 GET /api/tickets/<id>
+
+Get single ticket.
+
+🔹 PUT /api/tickets/<id>/status
+
+Update status: NEW, IN_PROGRESS, or CLOSED.
+
+🔹 DELETE /api/tickets/<id>
+
+Delete ticket.
+
+
+> **Note:** All screenshots shown below are available in the `samples/` folder inside this repository.
+
