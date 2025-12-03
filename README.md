@@ -1,111 +1,88 @@
-# 🎫 Simple Ticket Manager  
-  
-This project demonstrates practical hands-on experience with **REST API development, React frontend, database integration, workflow logic, optional AI usage and clean documentation.**
+# 🎫 Simple Ticket Manager — Full-Stack Mini Project (Flask)
+
+This project is a **Full-stack Ticket Management System** ,
+It uses **Flask** for backend + routing, **SQLite** for storage, and a lightweight **HTML/CSS/JavaScript** frontend served through Flask templates.  
+It also includes an **AI-powered priority suggestion** with a **rule-based fallback**, ensuring reliability with or without an API key.
 
 ---
 
-## 🚀 Project Overview
+## 🚀 Features
 
-This application allows users to:
-
-- Create new support tickets  
-- Enable **AI-based priority suggestion** (LLM or rule-based fallback)  
-- List all tickets  
-- View detailed ticket information  
-- Update ticket status (Start, Close)  
+### 📝 Ticket Management
+- Create support tickets  
+- View all tickets  
+- View ticket details  
+- Update ticket status (New → In Progress → Closed)  
 - Delete tickets  
-- Enjoy a polished **Corporate Blue UI** for professional presentation  
-- Access a fully deployed cloud version of the app  
 
-This project demonstrates the ability to independently design, build, integrate and document a complete product.
+### 🤖 Smart Priority (AI + Rules)
+- **AI Mode:** If an OpenAI API key is present, priority is suggested using an LLM  
+- **Fallback Mode:** If AI is unavailable, priority is assigned with a rule-based classifier  
+  - “urgent”, “fail”, “critical”, “payment” → HIGH  
+  - “issue”, “problem”, “slow” → MEDIUM  
+  - everything else → LOW
 
----
+### 🎨 Frontend (HTML/CSS/JS)
+- Professional Corporate Blue UI  
+- Built using Jinja2 templates  
+- JavaScript `fetch()` for API calls  
+- Fully integrated inside Flask (no React/Angular required)
 
-## 🧠 AI Priority Suggestion
-
-The application supports two priority classification modes:
-
-### ✔ 1. LLM-based classification (OpenAI)
-If an **OPENAI_API_KEY** is provided in environment variables, the backend uses an LLM to classify priority into:
-HIGH / MEDIUM / LOW
-
-### ✔ 2. Rule-based fallback (no API key needed)
-If AI is disabled or unavailable, the backend uses keyword checks:
-
-- "urgent", "fail", "payment", "critical" → **HIGH**
-- "issue", "problem", "slow" → **MEDIUM**
-- Otherwise → **LOW**
-
-This ensures the app always works — with or without AI.
-
----
-
-## 🎨 UI Theme: Corporate Blue
-
-The frontend styling includes:
-
-- Blue enterprise theme  
-- Rounded cards and panels  
-- Modern table layout  
-- Header links  
-- Clean form inputs  
-- Responsive spacing  
-- Professional, dashboard-like appearance  
+### 🧠 Backend (Flask)
+- REST API endpoints  
+- SQLite database  
+- SQLAlchemy ORM  
+- Clean JSON responses  
+- CORS enabled  
 
 ---
 
 ## 🧰 Tech Stack
 
-### **Backend**
+### Frontend
+- HTML  
+- CSS  
+- JavaScript (fetch API)  
+- Flask Jinja2 templates  
+
+### Backend
 - Python 3  
 - Flask  
 - Flask-CORS  
 - SQLAlchemy  
-- SQLite / PostgreSQL  
-- Gunicorn (for deployment)  
-- Optional OpenAI integration  
+- SQLite  
+- Optional OpenAI LLM integration  
 
-### **Frontend**
-- React (Create React App)  
-- Axios  
-- React Router  
-- Custom CSS Corporate Blue theme  
+### Deployment (optional)
+- Render (Backend + Frontend served together)
+
+---
 
 ## 📁 Project Structure
+ticket-manager/
+│
+├── app.py
+├── requirements.txt
+├── database.db
+│
+├── templates/
+│ ├── index.html
+│ ├── create_ticket.html
+│ ├── view_ticket.html
+│ └── layout.html
+│
+├── static/
+│ ├── styles.css
+│ └── script.js
+│
+└── samples/
 
-ticket-manager-3cortex/
-│
-├── backend/
-│ ├── app.py
-│ ├── requirements.txt
-│ └── .env (local only, excluded from Git)
-│
-├── frontend/
-│ ├── public/
-│ ├── src/
-│ │ ├── pages/
-│ │ │ ├── CreateTicket.js
-│ │ │ ├── TicketsList.js
-│ │ │ ├── TicketView.js
-│ │ ├── App.js
-│ │ ├── api.js
-│ │ ├── index.js
-│ │ └── index.css
-│ ├── package.json
-│ └── .env (local only)
-│
-├── samples/
-│ ├── create-ticket.png
-│ ├── tickets-list.png
-│ └── ticket-view.png
-│
-└── README.md
+
 
 ## 🛠️ Local Setup
 
 ### 🔹 Backend
 
-```bash
 cd backend
 python -m venv venv
 # PowerShell:
@@ -113,14 +90,8 @@ python -m venv venv
 pip install -r requirements.txt
 python app.py
 
-🔹 Frontend
-cd frontend
-npm install
-npm start
-
-Runs at:
-
-http://localhost:3000
+App runs at:
+http://localhost:5000
 
 📚 API Endpoints
 🔹 GET /api/health
